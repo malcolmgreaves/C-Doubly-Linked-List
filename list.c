@@ -254,11 +254,36 @@ int remove_data(list* llist, const void* data, equal_op compare_func, list_op fr
   */
 int remove_if(list* llist, list_pred pred_func, list_op free_func)
 {
+  if (!llist->size) {
+    return 0;
+  }
+
+  int removed = 0;
+  node *current = llist->head;
+  node *next = current->next;
+  node *prev = current->prev;
+
+  for (int i=0; i<llist->size; i++) {
+    if (pred_func(current->data)) {
+      next->prev = prev;
+      prev->next = next;
+      free_func(current);
+      free(current);
+      current = next;
+      removed++;
+    } else {
+      current = current->next;
+    }
+    next = current->next;
+    prev = current->prev;
+  }
+
+  return removed;
+
     /// @todo Implement changing the return value!
     /// @note remember to also free all nodes you remove.
     /// @note be sure to call pred_func on the NODES DATA to check if the node needs to be removed.
     /// @note free_func is a function that is responsible for freeing the node's data only.
-    return 0;
 }
 
 /** front
