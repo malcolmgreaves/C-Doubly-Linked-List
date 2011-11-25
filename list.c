@@ -50,8 +50,11 @@ list* create_list(void)
   */
 static node* create_node(void* data)
 {
-    /// @todo Implement changing the return value!
-    return NULL;
+  node *n = malloc(sizeof(node));
+  n->data = data;
+  n->prev = NULL;
+  n->next = NULL;
+  return n;
 }
 
 /** push_front
