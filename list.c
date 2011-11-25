@@ -150,10 +150,27 @@ int remove_front(list* llist, list_op free_func)
   */
 int remove_index(list* llist, int index, list_op free_func)
 {
+  if (!llist->size) {
+    return -1;
+  }
+
+  node *current = llist->head;
+  for (int i=0; i<index; i++) {
+    current = current->next;
+  }
+
+  node *next = current->next;
+  node *prev = current->prev;
+  prev->next = next;
+  next->prev = prev;
+
+  free_func(current);
+  free(current);
+
+  return 0;
     /// @todo Implement
     /// @note Remember to also free the node itself
     /// @note free_func is a function that is responsible for freeing the node's data only.
-    return -1;
 }
 
 /** remove_back
