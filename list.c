@@ -337,8 +337,12 @@ void* get_index(list* llist, int index)
   */
 void* back(list* llist)
 {
-    /// @todo Implement changing the return value!
+  if (!llist->size) {
     return NULL;
+  }
+
+  node *end = llist->head->prev;
+  return end->data;
 }
 
 /** is_empty
