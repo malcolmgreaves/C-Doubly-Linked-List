@@ -185,10 +185,23 @@ int remove_index(list* llist, int index, list_op free_func)
   */
 int remove_back(list* llist, list_op free_func)
 {
+  if (!llist->size) {
+    return -1;
+  }
+
+  node *head = llist-> head;
+  node *tbr = head->prev; // to be removed
+  node *nb = tbr->prev; // new back
+  head->prev = nb;
+  nb->next = head;
+
+  free_func(tbr);
+  free(tbr);
+
+  return 0;
     /// @todo Implement
     /// @note Remember to also free the node itself
     /// @note free_func is a function that is responsible for freeing the node's data only.
-    return -1;
 }
 
 /** remove_data
