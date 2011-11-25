@@ -91,7 +91,19 @@ void push_front(list* llist, void* data)
   */
 void push_back(list* llist, void* data)
 {
-    /// @todo Implement
+  node *n = create_node(data);
+  if (!llist->size) {
+    n->next = n;
+    n->prev = n;
+  } else {
+    node *head = llist->head;
+    node *prev = head->prev;
+    n->next = head;
+    n->prev = head->prev;
+    head->prev = n;
+    prev->next = n;
+  }
+  llist->size++;
 }
 
 /** remove_front
