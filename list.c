@@ -315,8 +315,16 @@ void* front(list* llist)
   */
 void* get_index(list* llist, int index)
 {
-    /// @todo Implement changing the return value!
+  if (!llist->size || index >= llist->size) {
     return NULL;
+  }
+  
+  node *current = llist->head;
+  for (int i=0; i<index; i++) {
+    current = current->next;
+  }
+
+  return current->data;
 }
 
 /** back
