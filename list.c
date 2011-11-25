@@ -118,10 +118,23 @@ void push_back(list* llist, void* data)
   */
 int remove_front(list* llist, list_op free_func)
 {
+  if (llist->size) {
+    node *head = llist->head;
+    node *next = head->next;
+    node *prev = head->prev;
+    llist->head = next;
+    next->prev = prev;
+    prev->next = next;
+    llist->size--;
+    free_func(head);
+    free(head);
+    return 0;
+  } else {
+    return -1;
+  }
     /// @todo Implement
     /// @note remember to also free the node itself
     /// @note free_func is a function that is responsible for freeing the node's data only.
-    return -1;
 }
 
 /** remove_index
