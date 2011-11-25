@@ -385,8 +385,13 @@ int size(list* llist)
   */
 int find_occurrence(list* llist, const void* search, equal_op compare_func)
 {
-    /// @todo Implement changing the return value!
-    return 0;
+  node *current = llist->head;
+  for (int i=0; i<llist->size; i++) {
+    if (compare_func(search, current->data)) {
+      return 1;
+    }
+  }
+  return 0;
 }
 
 /** empty_list
