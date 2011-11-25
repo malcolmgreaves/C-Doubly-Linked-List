@@ -296,9 +296,13 @@ int remove_if(list* llist, list_pred pred_func, list_op free_func)
   */
 void* front(list* llist)
 {
+  if (llist->size) {
+    return llist->head->data;
+  } else {
+    return NULL;
+  }
     /// @todo Implement changing the return value!
     /// @note you are returning the HEAD's DATA not the head node. Remember the user should never deal with the linked list nodes.
-    return NULL;
 }
 
 /** get_index
