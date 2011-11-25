@@ -404,6 +404,15 @@ int find_occurrence(list* llist, const void* search, equal_op compare_func)
   */
 void empty_list(list* llist, list_op free_func)
 {
+  node *current = llist->head;
+  node *next = current->next;
+
+  for (int i=0; i<llist->size; i++) {
+    free_func(current->data);
+    free(current);
+    current = next;
+    next = current->next;
+  }
     /// @todo Implement
     /// @note Free all of the nodes not the linked list itself.
     /// @note do not free llist.
