@@ -371,8 +371,7 @@ int is_empty(list* llist)
   */
 int size(list* llist)
 {
-    ///@note simply return the size of the linked list.  Its that easy!
-    return 0;
+  return llist->size;
 }
 
 /** find_occurence
