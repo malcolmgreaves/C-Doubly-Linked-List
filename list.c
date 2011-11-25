@@ -427,5 +427,10 @@ void empty_list(list* llist, list_op free_func)
   */
 void traverse(list* llist, list_op do_func)
 {
+  node *current = llist->head;
+  for (int i=0; i<llist->size; i++) {
+    do_func(current->data);
+    current = current->next;
+  }
     /// @todo Implement
 }
