@@ -17,8 +17,8 @@ typedef struct Student
 Student* create_student(const char* first_name, const char* last_name, int grade, unsigned int gtid)
 {
   Student *s = malloc(sizeof(Student));
-  char *f = malloc(strlen(first_name)*sizeof(char));
-  char *l = malloc(strlen(last_name)*sizeof(char));
+  char *f = malloc((strlen(first_name)+1)*sizeof(char));
+  char *l = malloc((strlen(last_name)+1)*sizeof(char));
   strncpy(f, first_name, strlen(first_name));
   strncpy(l, last_name, strlen(last_name));
   s->first_name = f;
