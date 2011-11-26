@@ -128,7 +128,18 @@ int main(void)
  	
  	/* YOU ARE REQUIRED TO MAKE MORE TEST CASES THAN THE ONES PROVIDED HERE */
  	/* You will get points off if you do not you should at least test each function here */
- 	
+
+        /* Testing the push_back function. Push three people to the front and one to the back.
+           Order should be Brandon, Noo, Baron, and then Tinky. */
+        // Note that Teletubbies do not make good 2110 students
+        push_front(llist, create_student("Baron", "von Baris", 92, 123456789));
+        push_front(llist, create_student("Noo", "Noo", 13, 666));
+        push_front(llist, create_student("Brandon", "the Destroyer", 200, 54545454));
+        push_back(llist, create_student("Tinky", "Winky", 0, 222222222));
+        printf("TEST CASE 7\nPush to back. Order should be Brandon, Noo, Baron, Tinky:\n");
+        traverse(llist, print_student);
+        printf("\n");
+
  	/* Testing over clean up*/
  	free(llist);
  	
