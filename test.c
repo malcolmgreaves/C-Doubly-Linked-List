@@ -1,6 +1,7 @@
 #include "list.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /* Here we are going to write some functions to support a linked list that stores Students (first name, last name, grade, gtid)  */
 /* Here is the data the user in this case us will be storing into our linked list */
@@ -15,6 +16,15 @@ typedef struct Student
 
 Student* create_student(const char* first_name, const char* last_name, int grade, unsigned int gtid)
 {
+  Student *s = malloc(sizeof(Student));
+  char *f = malloc(strlen(first_name)*sizeof(char));
+  char *l = malloc(strlen(last_name)*sizeof(char));
+  strncpy(f, first_name, strlen(first_name));
+  strncpy(l, last_name, strlen(last_name));
+  s->first_name = f;
+  s->last_name = l;
+  s->grade = grade;
+  s->gtid = gtid;
 	/* First allocate a student on the heap */
 	/* Allocate enough space for the first and last names */
 	/* AND copy the first and last name to the first and last name fields in the struct */
