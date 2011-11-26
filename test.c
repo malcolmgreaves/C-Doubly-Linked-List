@@ -88,26 +88,26 @@ int main(void)
 	list* llist = create_list();
   
   	/* What does an empty list contain?  Lets use our handy traversal function */
-  	printf("TEST CASE 1\nAn Empty list should print nothing here:");
+  	printf("TEST CASE 1\nAn Empty list should print nothing here:\n");
   	traverse(llist, print_student);
 	printf("\n");
 
  	/* Lets add a student and then print */
  	push_front(llist, create_student("Nick", "Polive", 56, 239402128));
- 	printf("TEST CASE 2\nA List with one student should print that student:");
+ 	printf("TEST CASE 2\nA List with one student should print that student:\n");
  	traverse(llist, print_student);
  	printf("\n");
  	
  	/* Lets remove that student and then print */
  	remove_front(llist, free_student);
- 	printf("TEST CASE 3\nAnother Empty list should print nothing here:");
+ 	printf("TEST CASE 3\nAnother Empty list should print nothing here:\n");
  	traverse(llist, print_student);
  	printf("\n");
 
  	/* Lets add two elements and then print */
  	push_front(llist, create_student("Baron", "von Baris", 92, 123456789));
  	push_front(llist, create_student("George", "Burdell", 65, 902313373));
- 	printf("TEST CASE 4\nA List with two students should print those two students:");
+ 	printf("TEST CASE 4\nA List with two students should print those two students:\n");
  	traverse(llist, print_student);
  	printf("\n"); 	
 
@@ -115,14 +115,14 @@ int main(void)
 	// Notice the commented line below is BAD because the return value from create_student was malloc'd and you never free it!
 	// find_occurence(llist, create_student("Nurse", "Joy", 3, 131313137), student_eq));
 	Student* p = create_student("Nurse", "Joy", 3, 131313137);
-	printf("TEST CASE 5\nFinding occurence when a node is not in the list should fail: ");
+	printf("TEST CASE 5\nFinding occurence when a node is not in the list should fail: \n");
 	printf("%d\n", find_occurrence(llist, p, student_eq));
 	/* Remember to FREE everything you malloc I malloc'd space for p and now I am done with it so I free it */
 	free_student(p);
 
   	/* Lets kill the list */
   	empty_list(llist, free_student);
- 	printf("TEST CASE 6\nAfter freeing all nodes the list should be empty:");
+ 	printf("TEST CASE 6\nAfter freeing all nodes the list should be empty:\n");
  	traverse(llist, print_student);
  	printf("\n"); 	
  	
