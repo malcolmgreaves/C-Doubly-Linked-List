@@ -152,6 +152,12 @@ int main(void)
         traverse(llist, print_student);
         printf("\n");
 
+        /* Lets test the index removal before the list gets too small */
+        remove_index(llist, 1, free_student);
+        printf("TEST CASE 10\nRemove by index. Remove the student at index 1, Baron should no longer be in the list:\n");
+        traverse(llist, print_student);
+        printf("\n");
+
  	/* Testing over clean up*/
  	free(llist);
  	
