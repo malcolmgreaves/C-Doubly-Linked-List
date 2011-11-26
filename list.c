@@ -395,6 +395,7 @@ int find_occurrence(list* llist, const void* search, equal_op compare_func)
     if (compare_func(search, current->data)) {
       return 1;
     }
+    current = current->next;
   }
   return 0;
 }
