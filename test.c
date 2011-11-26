@@ -215,6 +215,12 @@ int main(void)
         printf("%d\n", size(llist));
         printf("\n");
 
+        /* Test if exists */
+        printf("TEST CASE 18\nFind occurence. Does the student Baron von Baris exist in the list? (should be yes)\n");
+        printf(find_occurrence(llist, create_student("Baron", "von Baris", 92, 123456789), student_eq) ? "Yes\n" : "No\n");
+        printf("\n");
+
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
