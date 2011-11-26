@@ -199,7 +199,7 @@ int remove_back(list* llist, list_op free_func)
 
   llist->size--;
 
-  free_func(tbr);
+  free_func(tbr->data);
   free(tbr);
 
   return 0;
