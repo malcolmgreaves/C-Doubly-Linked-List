@@ -166,7 +166,7 @@ int remove_index(list* llist, int index, list_op free_func)
 
   llist->size--;
 
-  free_func(current);
+  free_func(current->data);
   free(current);
 
   return 0;
