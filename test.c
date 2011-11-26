@@ -205,6 +205,11 @@ int main(void)
         print_student(back(llist));
         printf("\n");
 
+        /* Test if the list is empty */
+        printf("TEST CASE 16\nIs empty. Is the list empty? (should be no)\n");
+        printf(is_empty(llist) ? "Yes\n" : "No\n");
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
