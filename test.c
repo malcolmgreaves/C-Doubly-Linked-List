@@ -167,6 +167,22 @@ int main(void)
         traverse(llist, print_student);
         printf("\n");
 
+        /* K, time for a new list. */
+  	empty_list(llist, free_student);
+        push_front(llist, create_student("Baron", "von Baris", 92, 123456789));
+        push_front(llist, create_student("Noo", "Noo", 13, 666));
+        push_front(llist, create_student("Brandon", "the Destroyer", 200, 54545454));
+        push_back(llist, create_student("Tinky", "Winky", 0, 222222222));
+        push_back(llist, create_student("Tinky", "Winky", 0, 222222222));
+
+        /* Oh no! We've accidentally added Tinky to the list twice but I don't want him there at all!
+           Time to test the remove_data function and rid us of Tinky. */
+        remove_data(llist, create_student("Tinky", "Winky", 0, 222222222), student_eq, free_student);
+        printf("TEST CASE 11\nRemove data. A new list was created and Twinky was accidentally added twice. I don't want him there at all so lets test the remove data function. Tinky should not be in the list:\n");
+        traverse(llist, print_student);
+        printf("\n");
+
+        /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
  	
