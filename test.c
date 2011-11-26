@@ -19,8 +19,8 @@ Student* create_student(const char* first_name, const char* last_name, int grade
   Student *s = malloc(sizeof(Student));
   char *f = malloc((strlen(first_name)+1)*sizeof(char));
   char *l = malloc((strlen(last_name)+1)*sizeof(char));
-  strncpy(f, first_name, strlen(first_name));
-  strncpy(l, last_name, strlen(last_name));
+  strncpy(f, first_name, strlen(first_name)+1);
+  strncpy(l, last_name, strlen(last_name)+1);
   s->first_name = f;
   s->last_name = l;
   s->grade = grade;
