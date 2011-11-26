@@ -164,6 +164,8 @@ int remove_index(list* llist, int index, list_op free_func)
   prev->next = next;
   next->prev = prev;
 
+  llist->size--;
+
   free_func(current);
   free(current);
 
@@ -194,6 +196,8 @@ int remove_back(list* llist, list_op free_func)
   node *nb = tbr->prev; // new back
   head->prev = nb;
   nb->next = head;
+
+  llist->size--;
 
   free_func(tbr);
   free(tbr);
@@ -236,7 +240,7 @@ int remove_data(list* llist, const void* data, equal_op compare_func, list_op fr
     next = current->next;
     prev = current->prev;
   }
-
+  llist->size-=removed;
   return removed;
     /// @todo Implement changing the return value!
     /// @note remember to also free all nodes you remove.
@@ -278,6 +282,7 @@ int remove_if(list* llist, list_pred pred_func, list_op free_func)
     prev = current->prev;
   }
 
+  llist->size-=removed;
   return removed;
 
     /// @todo Implement changing the return value!
