@@ -177,9 +177,10 @@ int main(void)
 
         /* Oh no! We've accidentally added Tinky to the list twice but I don't want him there at all!
            Time to test the remove_data function and rid us of Tinky. */
-        remove_data(llist, create_student("Tinky", "Winky", 0, 222222222), student_eq, free_student);
+        int removed = remove_data(llist, create_student("Tinky", "Winky", 0, 222222222), student_eq, free_student);
         printf("TEST CASE 11\nRemove data. A new list was created and Twinky was accidentally added twice. I don't want him there at all so lets test the remove data function. Tinky should not be in the list:\n");
         traverse(llist, print_student);
+        printf("Occurences removed: %d\n", removed);
         printf("\n");
 
         /* And make a new list */
