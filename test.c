@@ -25,6 +25,8 @@ Student* create_student(const char* first_name, const char* last_name, int grade
   s->last_name = l;
   s->grade = grade;
   s->gtid = gtid;
+
+  return s;
 	/* First allocate a student on the heap */
 	/* Allocate enough space for the first and last names */
 	/* AND copy the first and last name to the first and last name fields in the struct */
@@ -35,7 +37,6 @@ Student* create_student(const char* first_name, const char* last_name, int grade
 
 	/* DO NOT store the parameters first_name/last_name in the struct you allocate */ 
 	
-	return NULL;
 }
 
 /* For these functions below you should never be passed in NULL */
