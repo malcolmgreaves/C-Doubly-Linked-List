@@ -126,7 +126,7 @@ int remove_front(list* llist, list_op free_func)
     next->prev = prev;
     prev->next = next;
     llist->size--;
-    free_func(head);
+    free_func(head->data);
     free(head);
     return 0;
   } else {
