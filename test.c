@@ -190,6 +190,11 @@ int main(void)
         printf("Occurences removed: %d\n", removed);
         printf("\n");
 
+        /* Time to test the retrieval functions */
+        printf("TEST CASE 13\nFront. Lets get the front of the list. Should be Brandon:\n");
+        print_student(front(llist));
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
