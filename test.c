@@ -146,6 +146,12 @@ int main(void)
         traverse(llist, print_student);
         printf("\n");
 
+        /* Lets get rid of Tinky. I never liked that guy anyway. */
+        remove_back(llist, free_student);
+        printf("TEST CASE 9\nRemove back. Tinky should no longer by in the list:\n");
+        traverse(llist, print_student);
+        printf("\n");
+
  	/* Testing over clean up*/
  	free(llist);
  	
