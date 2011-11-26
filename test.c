@@ -183,6 +183,13 @@ int main(void)
         printf("Occurences removed: %d\n", removed);
         printf("\n");
 
+        /* If we try to remove Tinky again, nothing should happen */
+        removed = remove_data(llist, create_student("Tinky", "Winky", 0, 222222222), student_eq, free_student);
+        printf("TEST CASE 12\nRemove data. If we try to remove Tinky again nothing should happen:\n");
+        traverse(llist, print_student);
+        printf("Occurences removed: %d\n", removed);
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
