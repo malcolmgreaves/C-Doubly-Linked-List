@@ -59,6 +59,10 @@ void print_student(void* data)
 
 void free_student(void* data)
 {
+  Student *s = data;
+  free(s->first_name);
+  free(s->last_name);
+  free(s);
 	/* TODO Implement You are to first free any fields that were malloc'd. */
 	/* Then free the struct in this order */
 }
