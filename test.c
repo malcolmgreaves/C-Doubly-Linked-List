@@ -210,6 +210,11 @@ int main(void)
         printf(is_empty(llist) ? "Yes\n" : "No\n");
         printf("\n");
 
+        /* Test the size */
+        printf("TEST CASE 17\nSize. What is the size of the list? (should be 3)\n");
+        printf("%d\n", size(llist));
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
