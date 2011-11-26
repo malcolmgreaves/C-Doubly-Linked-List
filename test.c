@@ -43,6 +43,10 @@ Student* create_student(const char* first_name, const char* last_name, int grade
 /* You will always get valid data here */
 void print_student(void* data)
 {
+  Student *s = data;
+  printf("Student: %s %s\n", s->first_name, s->last_name);
+  printf("Grade: %d\n", s->grade);
+  printf("GtID: %d\n", s->gtid);
 	/* TODO Implement just print out all of the information here. */
 	/* Your output should exactly look like this without no weird characters printing out.
 	Student: FIRSTNAME LASTNAME
