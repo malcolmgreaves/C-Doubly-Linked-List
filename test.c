@@ -69,11 +69,20 @@ void free_student(void* data)
 
 int student_eq(const void* a, const void* b)
 {
+  const Student *s1 = a;
+  const Student *s2 = b;
+  if (!strncmp(s1->first_name, s2->first_name, strlen(s1->first_name)) ||
+      !strncmp(s2->last_name,  s2->last_name,  strlen(s1->last_name)) ||
+      s1->grade != s2->grade ||
+      s1->gtid != s2->gtid) {
+    return 0;
+  } else {
+    return 1;
+  }
 	/* TODO Test if two students are equal */
 	/* Two students are equal if all of their fields are equal */
 	/* To compare strings the function strncmp will be useful */
 	/* Again you can read the man pages for strncmp */
-	return 0;
 }
 
 /* This main function does a little testing
