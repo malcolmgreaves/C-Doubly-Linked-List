@@ -195,6 +195,11 @@ int main(void)
         print_student(front(llist));
         printf("\n");
 
+        /* Testing the get_index function */
+        printf("TEST CASE 14\nGet index. Lets get the student at index 1. Should be Noo:\n");
+        print_student(get_index(llist, 1));
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
