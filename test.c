@@ -200,6 +200,11 @@ int main(void)
         print_student(get_index(llist, 1));
         printf("\n");
 
+        /* Test the back function */
+        printf("TEST CASE 15\nBack. Let's get the student at the back of the list. Should be Baron:\n");
+        print_student(back(llist));
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
