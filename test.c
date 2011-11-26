@@ -140,6 +140,12 @@ int main(void)
         traverse(llist, print_student);
         printf("\n");
 
+        /* Now lets test remove front! Brandon should no longer be in the list */
+        remove_front(llist, free_student);
+        printf("TEST CASE 8\nRemove front. Brandon should no longer be in the list:\n");
+        traverse(llist, print_student);
+        printf("\n");
+
  	/* Testing over clean up*/
  	free(llist);
  	
