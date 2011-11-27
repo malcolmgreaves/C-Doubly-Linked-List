@@ -414,6 +414,8 @@ int find_occurrence(list* llist, const void* search, equal_op compare_func)
   */
 void empty_list(list* llist, list_op free_func)
 {
+  if (!llist->size) return;
+
   node *current = llist->head;
   node *next = current->next;
 
