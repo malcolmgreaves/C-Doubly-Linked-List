@@ -252,6 +252,11 @@ int main(void)
         printf("%d\n", remove_data(llist, create_student("Baron", "von Baris", 92, 123456789), student_eq, free_student));
         printf("\n");
 
+        /* Test front on an empty list */
+        printf("TEST CASE 24\nFront on empty list:\n");
+        printf("%d\n", (int)front(llist));
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
