@@ -262,6 +262,11 @@ int main(void)
         printf("%d\n", (int)back(llist));
         printf("\n");
 
+        /* Test get index on empty list */
+        printf("TEST CASE 26\nGet index on empty list:\n");
+        printf("%d\n", (int)get_index(llist, 0));
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
