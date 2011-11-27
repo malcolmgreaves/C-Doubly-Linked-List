@@ -220,6 +220,18 @@ int main(void)
         printf(find_occurrence(llist, create_student("Baron", "von Baris", 92, 123456789), student_eq) ? "Yes\n" : "No\n");
         printf("\n");
 
+        /* Lets test some of the functions on a list size of 0 */
+        empty_list(llist, free_student);
+
+        /* Push to front is obviously working at this point */
+
+        /* Test push back */
+        push_back(llist, create_student("Baron", "von Baris", 92, 123456789));
+        printf("TEST CASE 19\nPush back on empty list:\n");
+        traverse(llist, print_student);
+        printf("\n");
+
+
 
         /* And make a new list */
  	/* Testing over clean up*/
