@@ -267,6 +267,11 @@ int main(void)
         printf("%d\n", (int)get_index(llist, 0));
         printf("\n");
 
+        /* Test is empty on empty list */
+        printf("TEST CASE 27\nIs empty on empty list:\n");
+        printf("%d\n", is_empty(llist));
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
