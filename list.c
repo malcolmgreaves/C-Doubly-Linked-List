@@ -95,6 +95,7 @@ void push_back(list* llist, void* data)
   if (!llist->size) {
     n->next = n;
     n->prev = n;
+    llist->head = n;
   } else {
     node *head = llist->head;
     node *prev = head->prev;
