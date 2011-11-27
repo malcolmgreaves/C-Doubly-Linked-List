@@ -272,6 +272,11 @@ int main(void)
         printf("%d\n", is_empty(llist));
         printf("\n");
 
+        /* Test find occurrence on empty list */
+        printf("TEST CASE 28\nFind occurrence on empty list:\n");
+        printf("%d\n", find_occurrence(llist, create_student("Baron", "von Baris", 92, 123456789), student_eq));
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
