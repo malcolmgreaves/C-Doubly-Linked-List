@@ -249,7 +249,7 @@ int main(void)
 
         /* Test remove data on empty list */
         printf("TEST CASE 23\nRemove data on empty list: (nothing should happen, should return 0)\n");
-        printf("%d\n", remove_data(llist2, create_student("Baron", "von Baris", 92, 123456789), student_eq, free_student));
+        printf("%d\n", remove_data(llist, create_student("Baron", "von Baris", 92, 123456789), student_eq, free_student));
         printf("\n");
 
         /* And make a new list */

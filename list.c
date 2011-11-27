@@ -421,6 +421,7 @@ void empty_list(list* llist, list_op free_func)
     next = current->next;
   }
 
+  llist->head=NULL;
   llist->size=0;
     /// @todo Implement
     /// @note Free all of the nodes not the linked list itself.
