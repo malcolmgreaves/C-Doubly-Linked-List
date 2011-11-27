@@ -27,16 +27,6 @@ Student* create_student(const char* first_name, const char* last_name, int grade
   s->gtid = gtid;
 
   return s;
-	/* First allocate a student on the heap */
-	/* Allocate enough space for the first and last names */
-	/* AND copy the first and last name to the first and last name fields in the struct */
-	/* Set the grade and gtid */
-	/* Notice there are two functions that will help you with the second and third steps */
-	/* strlen and strncpy will be helpful */
-	/* type man strlen and man strncpy to learn how to use them */
-
-	/* DO NOT store the parameters first_name/last_name in the struct you allocate */ 
-	
 }
 
 /* For these functions below you should never be passed in NULL */
@@ -47,14 +37,6 @@ void print_student(void* data)
   printf("Student: %s %s\n", s->first_name, s->last_name);
   printf("Grade: %d\n", s->grade);
   printf("GtID: %d\n", s->gtid);
-	/* TODO Implement just print out all of the information here. */
-	/* Your output should exactly look like this without no weird characters printing out.
-	Student: FIRSTNAME LASTNAME
-	Grade: GRADE
-	GtID: GTID
-	*/
-	/* printf and the format specifiers %d %s will be useful here 
-	Again use the man pages if you don't know how to use printf */
 }
 
 void free_student(void* data)
@@ -63,8 +45,6 @@ void free_student(void* data)
   free(s->first_name);
   free(s->last_name);
   free(s);
-	/* TODO Implement You are to first free any fields that were malloc'd. */
-	/* Then free the struct in this order */
 }
 
 int student_eq(const void* a, const void* b)
@@ -79,10 +59,6 @@ int student_eq(const void* a, const void* b)
   } else {
     return 0;
   }
-	/* TODO Test if two students are equal */
-	/* Two students are equal if all of their fields are equal */
-	/* To compare strings the function strncmp will be useful */
-	/* Again you can read the man pages for strncmp */
 }
 
 /* This main function does a little testing
