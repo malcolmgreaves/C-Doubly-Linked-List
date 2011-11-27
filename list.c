@@ -223,6 +223,9 @@ int remove_back(list* llist, list_op free_func)
 int remove_data(list* llist, const void* data, equal_op compare_func, list_op free_func)
 {
   int removed = 0;
+
+  if (!llist->size) return removed;
+
   node *current = llist->head;
   node *next = current->next;
   node *prev = current->prev;
