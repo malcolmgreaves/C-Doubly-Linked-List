@@ -257,6 +257,11 @@ int main(void)
         printf("%d\n", (int)front(llist));
         printf("\n");
 
+        /* Test back on an empty list */
+        printf("TEST CASE 25\nBack on empty list:\n");
+        printf("%d\n", (int)back(llist));
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
