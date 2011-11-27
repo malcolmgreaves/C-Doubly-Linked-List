@@ -242,6 +242,10 @@ int main(void)
         printf("%d\n", remove_index(llist, 0, free_student));
         printf("\n");
 
+        /* Test remove back on empty list */
+        printf("TEST CASE 22\nRemove back on empty list: (should fail and return -1)\n");
+        printf("%d\n", remove_back(llist, free_student));
+        printf("\n");
 
         /* And make a new list */
  	/* Testing over clean up*/
