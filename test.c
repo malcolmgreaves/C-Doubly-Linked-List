@@ -230,6 +230,11 @@ int main(void)
         printf("TEST CASE 19\nPush back on empty list:\n");
         traverse(llist, print_student);
         printf("\n");
+        empty_list(llist, free_student);
+
+        /* Test remove front on empty list */
+        printf("TEST CASE 20\nRemove fromt on empty list: (should fail and return -1)\n");
+        printf("%d\n", remove_front(llist, free_student));
 
 
 
