@@ -277,6 +277,9 @@ int main(void)
         printf("%d\n", find_occurrence(llist, create_student("Baron", "von Baris", 92, 123456789), student_eq));
         printf("\n");
 
+        /* Now what happens if you empty an empty list? */
+        empty_list(llist, free_student);
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
