@@ -235,11 +235,12 @@ int main(void)
         /* Test remove front on empty list */
         printf("TEST CASE 20\nRemove fromt on empty list: (should fail and return -1)\n");
         printf("%d\n", remove_front(llist, free_student));
+        printf("\n");
 
         /* Test remove index on empty list */
         printf("TEST CASE 21\nRemove index on empty list: (should fail and return -1)\n");
         printf("%d\n", remove_index(llist, 0, free_student));
-
+        printf("\n");
 
 
         /* And make a new list */
