@@ -153,18 +153,22 @@ int main(void)
 
         /* Oh no! We've accidentally added Tinky to the list twice but I don't want him there at all!
            Time to test the remove_data function and rid us of Tinky. */
-        int removed = remove_data(llist, create_student("Tinky", "Winky", 0, 222222222), student_eq, free_student);
+        p = create_student("Tinky", "Winky", 0, 222222222);
+        int removed = remove_data(llist, p, student_eq, free_student);
         printf("TEST CASE 11\nRemove data. A new list was created and Twinky was accidentally added twice. I don't want him there at all so lets test the remove data function. Tinky should not be in the list:\n");
         traverse(llist, print_student);
         printf("Occurences removed: %d\n", removed);
         printf("\n");
+        free_student(p);
 
         /* If we try to remove Tinky again, nothing should happen */
-        removed = remove_data(llist, create_student("Tinky", "Winky", 0, 222222222), student_eq, free_student);
+        p = create_student("Tinky", "Winky", 0, 222222222);
+        removed = remove_data(llist, p, student_eq, free_student);
         printf("TEST CASE 12\nRemove data. If we try to remove Tinky again nothing should happen:\n");
         traverse(llist, print_student);
         printf("Occurences removed: %d\n", removed);
         printf("\n");
+        free_student(p);
 
         /* Time to test the retrieval functions */
         printf("TEST CASE 13\nFront. Lets get the front of the list. Should be Brandon:\n");
@@ -192,9 +196,11 @@ int main(void)
         printf("\n");
 
         /* Test if exists */
+        p = create_student("Baron", "von Baris", 92, 123456789);
         printf("TEST CASE 18\nFind occurence. Does the student Baron von Baris exist in the list? (should be yes)\n");
-        printf(find_occurrence(llist, create_student("Baron", "von Baris", 92, 123456789), student_eq) ? "Yes\n" : "No\n");
+        printf(find_occurrence(llist, p, student_eq) ? "Yes\n" : "No\n");
         printf("\n");
+        free_student(p);
 
         /* Lets test some of the functions on a list size of 0 */
         empty_list(llist, free_student);
@@ -224,9 +230,11 @@ int main(void)
         printf("\n");
 
         /* Test remove data on empty list */
+        p = create_student("Baron", "von Baris", 92, 123456789);
         printf("TEST CASE 23\nRemove data on empty list: (nothing should happen, should return 0)\n");
-        printf("%d\n", remove_data(llist, create_student("Baron", "von Baris", 92, 123456789), student_eq, free_student));
+        printf("%d\n", remove_data(llist, p, student_eq, free_student));
         printf("\n");
+        free_student(p);
 
         /* Test front on an empty list */
         printf("TEST CASE 24\nFront on empty list:\n");
@@ -249,9 +257,11 @@ int main(void)
         printf("\n");
 
         /* Test find occurrence on empty list */
+        p = create_student("Baron", "von Baris", 92, 123456789);
         printf("TEST CASE 28\nFind occurrence on empty list:\n");
-        printf("%d\n", find_occurrence(llist, create_student("Baron", "von Baris", 92, 123456789), student_eq));
+        printf("%d\n", find_occurrence(llist, p, student_eq));
         printf("\n");
+        free_student(p);
 
         /* Now what happens if you empty an empty list? */
         empty_list(llist, free_student);
