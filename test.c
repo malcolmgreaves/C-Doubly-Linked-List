@@ -282,6 +282,13 @@ int main(void)
         remove_back(llist, free_student);
         printf("\n");
 
+        /* Lets remove index on list of size 1 */
+        push_front(llist, create_student("Baron", "von Baris", 92, 123456789));
+        printf("TEST CASE 31\nRemove index on list of size 1. Should be empty:\n");
+        remove_index(llist, 0, free_student);
+        traverse(llist, print_student);
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
