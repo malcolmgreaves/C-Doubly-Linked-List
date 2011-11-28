@@ -48,8 +48,12 @@ void print_student(void* data)
 void free_student(void* data)
 {
   Student *s = data;
+
+  // Free the names first
   free(s->first_name);
   free(s->last_name);
+  
+  // Then the student
   free(s);
 }
 
