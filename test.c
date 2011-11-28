@@ -303,6 +303,12 @@ int main(void)
         print_student(front(llist));
         printf("\n");
 
+        /* Test back of a list of size 1 */
+        printf("TEST CASE 34\nBack of a list of size 1: (should be Baron)\n");
+        print_student(back(llist));
+        printf("\n");
+
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
