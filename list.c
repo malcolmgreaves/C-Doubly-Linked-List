@@ -178,28 +178,33 @@ int remove_front(list* llist, list_op free_func)
   */
 int remove_index(list* llist, int index, list_op free_func)
 {
-  if (!llist->size) {
-    return -1;
-  }
+  if (!llist->size) return -1;
 
-  node *current = llist->head;
+  node *current = llist->head; // = index of 0
+
+  // loop through until you get to where you want
   for (int i=0; i<index; i++) {
     current = current->next;
   }
 
+  // if the size is 1
   if (llist->size == 1) {
+    // make the head null
     llist->head = NULL;
   } else {
     node *next = current->next;
     node *prev = current->prev;
+    
+    // update the pointers to remove the node
     prev->next = next;
     next->prev = prev;
   }
-
-  llist->size--;
-
+  
+  // Free the data and node
   free_func(current->data);
   free(current);
+  
+  llist->size--;
 
   return 0;
 }
