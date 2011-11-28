@@ -73,6 +73,11 @@ int student_eq(const void* a, const void* b)
   }
 }
 
+/* Predicate function: is the student failing?
+ * Takes in a pointer to a student
+ * return 1 if grade is lower than 60 (failing)
+ * or 0 otherwise.
+ */
 int student_failing(const void* a) {
   const Student *s = a;
   if (s->grade < 60) return 1;
