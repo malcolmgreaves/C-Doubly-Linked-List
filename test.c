@@ -308,6 +308,10 @@ int main(void)
         print_student(back(llist));
         printf("\n");
 
+        /* Test get index of a list of size 1 */
+        printf("TEST CASE 35\nGet index of a list of size 1: (should be Baron)\n");
+        print_student(get_index(llist, 0));
+        printf("\n");
 
         /* And make a new list */
  	/* Testing over clean up*/
