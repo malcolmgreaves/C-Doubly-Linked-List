@@ -221,25 +221,27 @@ int remove_index(list* llist, int index, list_op free_func)
   */
 int remove_back(list* llist, list_op free_func)
 {
-  if (!llist->size) {
-    return -1;
-  }
+  if (!llist->size) return -1;
 
   node *head = llist->head;
   node *tbr = head->prev; // to be removed
   node *nb = tbr->prev; // new back
 
+  // if list if of size 1
   if (llist->size == 1) {
+    // make the head null
     llist->head = NULL;
   } else {
+    // update the pointers to back is gone.
     head->prev = nb;
     nb->next = head;
   }
 
-  llist->size--;
-
+  // free the data and node
   free_func(tbr->data);
   free(tbr);
+  
+  llist->size--;
 
   return 0;
 }
