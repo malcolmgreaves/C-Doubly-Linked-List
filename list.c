@@ -418,10 +418,10 @@ void* get_index(list* llist, int index)
   */
 void* back(list* llist)
 {
-  if (!llist->size) {
-    return NULL;
-  }
+  // if the list is empty return null
+  if (!llist->size) return NULL;
 
+  // return the previous of the head
   node *end = llist->head->prev;
   return end->data;
 }
