@@ -67,17 +67,26 @@ static node* create_node(void* data)
 void push_front(list* llist, void* data)
 {
   node *n = create_node(data);
+
+  // if the list if size 0
   if (!llist->size) {
+    // then the next and prev nodes to itself
     n->next = n;
     n->prev = n;
   } else {
     node *head = llist->head;
     node *prev = head->prev;
+    
+    // set the new nodes next and prev pointers
     n->next = head;
     n->prev = head->prev;
+
+    // set the prev and next pointers to the new node
     head->prev = n;
     prev->next = n;
   }
+
+  // set the head of the list to the new node
   llist->head = n;
   llist->size++;
 }
