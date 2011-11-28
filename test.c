@@ -349,8 +349,9 @@ int main(void)
         traverse(llist, print_student);
         printf("\n");
 
+        /* Empty the list now that we're done with it */
+        empty_list(llist, free_student);
 
-        /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
  	
