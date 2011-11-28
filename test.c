@@ -61,6 +61,12 @@ int student_eq(const void* a, const void* b)
   }
 }
 
+int student_failing(const void* a) {
+  const Student *s = a;
+  if (s->grade < 60) return 1;
+  return 0;
+}
+
 /* This main function does a little testing
    Like all good CS Majors you are required to test
    your code here. There is no substitute for testing
