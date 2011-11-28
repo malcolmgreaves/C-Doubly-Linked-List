@@ -101,15 +101,24 @@ void push_front(list* llist, void* data)
 void push_back(list* llist, void* data)
 {
   node *n = create_node(data);
+
+  // if the list size is 0
   if (!llist->size) {
+    // set the next and prev to the new node
     n->next = n;
     n->prev = n;
+
+    // since there are no other nodes this node will be the head
     llist->head = n;
   } else {
     node *head = llist->head;
     node *prev = head->prev;
+
+    // insert to the back by setting next to the head
     n->next = head;
     n->prev = head->prev;
+
+    // Update the next and prev pointers to the current node
     head->prev = n;
     prev->next = n;
   }
