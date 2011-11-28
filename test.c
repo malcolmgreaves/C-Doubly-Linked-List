@@ -266,6 +266,15 @@ int main(void)
         /* Now what happens if you empty an empty list? */
         empty_list(llist, free_student);
 
+        /* Lets test a list of size 1 */
+        push_front(llist, create_student("Baron", "von Baris", 92, 123456789));
+        
+        /* Test push back on list of size 1 */
+        push_back(llist, create_student("Noo", "Noo", 13, 666));
+        printf("TEST CASE 29\nPush back on list of size 1. Should be Baron then Noo:\n");
+        traverse(llist, print_student);
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
