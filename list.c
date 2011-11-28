@@ -120,12 +120,17 @@ void push_back(list* llist, void* data)
 int remove_front(list* llist, list_op free_func)
 {
   if (llist->size) {
-    node *head = llist->head;
-    node *next = head->next;
-    node *prev = head->prev;
-    llist->head = next;
-    next->prev = prev;
-    prev->next = next;
+    if (llist->size == 1) {
+      llist->head = NULL;
+    } else {
+      node *head = llist->head;
+      node *next = head->next;
+      node *prev = head->prev;
+      llist->head = next;
+      next->prev = prev;
+      prev->next = next;
+    }
+
     llist->size--;
     free_func(head->data);
     free(head);
@@ -157,10 +162,14 @@ int remove_index(list* llist, int index, list_op free_func)
     current = current->next;
   }
 
-  node *next = current->next;
-  node *prev = current->prev;
-  prev->next = next;
-  next->prev = prev;
+  if (llist->size == 1) {
+    llist->head = NULL;
+  } else {
+    node *next = current->next;
+    node *prev = current->prev;
+    prev->next = next;
+    next->prev = prev;
+  }
 
   llist->size--;
 
@@ -186,11 +195,15 @@ int remove_back(list* llist, list_op free_func)
     return -1;
   }
 
-  node *head = llist-> head;
-  node *tbr = head->prev; // to be removed
-  node *nb = tbr->prev; // new back
-  head->prev = nb;
-  nb->next = head;
+  if (llist->size == 1) {
+    llist->head = NULL;
+  } else {
+    node *head = llist-> head;
+    node *tbr = head->prev; // to be removed
+    node *nb = tbr->prev; // new back
+    head->prev = nb;
+    nb->next = head;
+  }
 
   llist->size--;
 
@@ -236,6 +249,8 @@ int remove_data(list* llist, const void* data, equal_op compare_func, list_op fr
     prev = current->prev;
   }
   llist->size-=removed;
+
+  if (!llist->size) llist->head = NULL;
   return removed;
 }
 
@@ -275,6 +290,7 @@ int remove_if(list* llist, list_pred pred_func, list_op free_func)
   }
 
   llist->size-=removed;
+  if (!llist->size) llist->head = NULL;
   return removed;
 }
 
