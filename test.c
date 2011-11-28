@@ -17,10 +17,16 @@ typedef struct Student
 Student* create_student(const char* first_name, const char* last_name, int grade, unsigned int gtid)
 {
   Student *s = malloc(sizeof(Student));
+
+  // allocate the first and last name
   char *f = malloc((strlen(first_name)+1)*sizeof(char));
   char *l = malloc((strlen(last_name)+1)*sizeof(char));
+
+  // copy the provided first and last name into pointers
   strncpy(f, first_name, strlen(first_name)+1);
   strncpy(l, last_name, strlen(last_name)+1);
+
+  // store the pointers and other data in the struct
   s->first_name = f;
   s->last_name = l;
   s->grade = grade;
