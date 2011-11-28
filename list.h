@@ -1,6 +1,6 @@
 /**
  * CS 2110 - Fall 2011 - Homework #11
- * Edited by: Brandon Whitehead
+ * Edited by: Tomer Elmalem 
  *
  * list.h
  */
