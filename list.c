@@ -403,7 +403,7 @@ void empty_list(list* llist, list_op free_func)
     free_func(current->data);
     free(current);
     current = next;
-    next = current->next;
+    if (i < llist->size-1) next = current->next;
   }
 
   llist->head=NULL;
