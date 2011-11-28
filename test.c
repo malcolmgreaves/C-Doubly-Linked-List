@@ -297,6 +297,12 @@ int main(void)
         printf("\n");
         free_student(p);
 
+        /* Test front of a list of size 1 */
+        push_front(llist, create_student("Baron", "von Baris", 92, 123456789));
+        printf("TEST CASE 33\nFront of a list of size 1: (should be Baron)\n");
+        print_student(front(llist));
+        printf("\n");
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
