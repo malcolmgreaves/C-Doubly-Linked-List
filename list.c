@@ -280,7 +280,7 @@ int remove_if(list* llist, list_pred pred_func, list_op free_func)
     if (pred_func(current->data)) {
       next->prev = prev;
       prev->next = next;
-      free_func(current);
+      free_func(current->data);
       free(current);
       current = next;
       removed++;
