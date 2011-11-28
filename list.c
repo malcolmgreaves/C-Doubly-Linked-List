@@ -487,18 +487,23 @@ int find_occurrence(list* llist, const void* search, equal_op compare_func)
   */
 void empty_list(list* llist, list_op free_func)
 {
+  // if the size is 0 return
   if (!llist->size) return;
 
   node *current = llist->head;
   node *next = current->next;
 
+  // loop through the list and free all the nodes
   for (int i=0; i<llist->size; i++) {
     free_func(current->data);
     free(current);
     current = next;
+    
+    // if it's not the end of the list set the next node
     if (i < llist->size-1) next = current->next;
   }
 
+  // reset the head and size
   llist->head=NULL;
   llist->size=0;
 }
