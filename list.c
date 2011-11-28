@@ -354,8 +354,10 @@ int remove_if(list* llist, list_pred pred_func, list_op free_func)
     }
 
     // update the next and prev nodes
-    next = current->next;
-    prev = current->prev;
+    if (llist->size > 0) {
+      next = current->next;
+      prev = current->prev;
+    }
   }
 
   // update the list size
