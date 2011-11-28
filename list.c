@@ -376,8 +376,10 @@ int remove_if(list* llist, list_pred pred_func, list_op free_func)
 void* front(list* llist)
 {
   if (llist->size) {
+    // if the list has a size return the data
     return llist->head->data;
   } else {
+    // or return NULL
     return NULL;
   }
 }
