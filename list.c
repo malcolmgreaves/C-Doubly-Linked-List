@@ -394,11 +394,13 @@ void* front(list* llist)
   */
 void* get_index(list* llist, int index)
 {
+  // if the list is 0 or if the index in larger than the size
   if (!llist->size || index >= llist->size) {
     return NULL;
   }
   
-  node *current = llist->head;
+  // loop through the list until you get to the desired index
+  node *current = llist->head; // index = 0
   for (int i=0; i<index; i++) {
     current = current->next;
   }
