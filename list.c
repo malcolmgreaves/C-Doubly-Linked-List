@@ -293,9 +293,11 @@ int remove_if(list* llist, list_pred pred_func, list_op free_func)
   node *current = llist->head;
   node *next = current->next;
   node *prev = current->prev;
+  int is_head = 1;
 
   for (int i=0; i<llist->size; i++) {
     if (pred_func(current->data)) {
+      if (is_head) llist->head = next;
       next->prev = prev;
       prev->next = next;
       free_func(current->data);
@@ -303,6 +305,7 @@ int remove_if(list* llist, list_pred pred_func, list_op free_func)
       current = next;
       removed++;
     } else {
+      is_head = 0;
       current = current->next;
     }
     next = current->next;

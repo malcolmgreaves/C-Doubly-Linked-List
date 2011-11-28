@@ -326,6 +326,7 @@ int main(void)
         push_front(llist, create_student("Brandon", "the Destroyer", 200, 54545454));
         push_back(llist, create_student("Tinky", "Winky", 0, 222222222));
         push_back(llist, create_student("Tinky", "Winky", 0, 222222222));
+        push_front(llist, create_student("Baron", "von Baris", 2, 123456789));
         printf("TEST CASE 36\nRemove if (should only display students with grades higher then 60):\n");
         remove_if(llist, student_failing, free_student);
         traverse(llist, print_student);
