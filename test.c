@@ -61,6 +61,8 @@ int student_eq(const void* a, const void* b)
 {
   const Student *s1 = a;
   const Student *s2 = b;
+
+  // If everything between the two students is the same return 1
   if (!strncmp(s1->first_name, s2->first_name, strlen(s1->first_name)) &&
       !strncmp(s2->last_name,  s2->last_name,  strlen(s1->last_name)) &&
       s1->grade == s2->grade &&
