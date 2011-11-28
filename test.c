@@ -289,6 +289,14 @@ int main(void)
         traverse(llist, print_student);
         printf("\n");
 
+        /* Test remove data on list of size 1 */
+        push_front(llist, create_student("Baron", "von Baris", 92, 123456789));
+        p = create_student("Baron", "von Baris", 92, 123456789);
+        printf("TEST CASE 32\nRemove data on list of size 1: (should return 1)\n");
+        printf("%d\n", remove_data(llist, p, student_eq, free_student));
+        printf("\n");
+        free_student(p);
+
         /* And make a new list */
  	/* Testing over clean up*/
  	free(llist);
