@@ -318,9 +318,7 @@ int remove_data(list* llist, const void* data, equal_op compare_func, list_op fr
   */
 int remove_if(list* llist, list_pred pred_func, list_op free_func)
 {
-  if (!llist->size) {
-    return 0;
-  }
+  if (!llist->size) return 0;
 
   int removed = 0;
   node *current = llist->head;
@@ -330,23 +328,40 @@ int remove_if(list* llist, list_pred pred_func, list_op free_func)
 
   for (int i=0; i<llist->size; i++) {
     if (pred_func(current->data)) {
+      // if we're still on the head update the list's head
       if (is_head) llist->head = next;
+
+      // update the pointers
       next->prev = prev;
       prev->next = next;
+
+      // free the data and node
       free_func(current->data);
       free(current);
+
+      // update the current
       current = next;
+
       removed++;
     } else {
+      // we're no longer on the head
       is_head = 0;
+
+      // update the current
       current = current->next;
     }
+
+    // update the next and prev nodes
     next = current->next;
     prev = current->prev;
   }
 
+  // update the list size
   llist->size-=removed;
+
+  // if the list is empty make the head null
   if (!llist->size) llist->head = NULL;
+
   return removed;
 }
 
