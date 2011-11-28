@@ -318,6 +318,19 @@ int main(void)
         printf("TEST CASE 35\nGet index of a list of size 1: (should be Baron)\n");
         print_student(get_index(llist, 0));
         printf("\n");
+        
+        empty_list(llist, free_student);
+        /* Test remove if */
+        push_front(llist, create_student("Baron", "von Baris", 92, 123456789));
+        push_front(llist, create_student("Noo", "Noo", 13, 666));
+        push_front(llist, create_student("Brandon", "the Destroyer", 200, 54545454));
+        push_back(llist, create_student("Tinky", "Winky", 0, 222222222));
+        push_back(llist, create_student("Tinky", "Winky", 0, 222222222));
+        printf("TEST CASE 36\nRemove if (should only display students with grades higher then 60):\n");
+        remove_if(llist, student_failing, free_student);
+        traverse(llist, print_student);
+        printf("\n");
+
 
         /* And make a new list */
  	/* Testing over clean up*/
