@@ -274,6 +274,13 @@ int main(void)
         printf("TEST CASE 29\nPush back on list of size 1. Should be Baron then Noo:\n");
         traverse(llist, print_student);
         printf("\n");
+        empty_list(llist, free_student);
+
+        /* Lets test remove back on list of size 1 */
+        push_front(llist, create_student("Baron", "von Baris", 92, 123456789));
+        printf("TEST CASE 30\nRemove back on list of size 1. Should be empty:\n");
+        remove_back(llist, free_student);
+        printf("\n");
 
         /* And make a new list */
  	/* Testing over clean up*/
