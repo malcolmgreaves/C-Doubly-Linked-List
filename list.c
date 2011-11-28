@@ -270,23 +270,40 @@ int remove_data(list* llist, const void* data, equal_op compare_func, list_op fr
 
   for (int i=0; i<llist->size; i++) {
     if (compare_func(data, current->data)) {
+      // if we are still on the head update the current head
       if (is_head) llist->head = next;
+
+      // update the pointers
       next->prev = prev;
       prev->next = next;
+
+      // free the data and node
       free_func(current->data);
       free(current);
+
+      // the current is the next node
       current = next;
+
       removed++;
     } else {
+      // no longer on the head
       is_head = 0;
+      
+      // move to the next node
       current = current->next;
     }
+
+    // update the previous and next node
     next = current->next;
     prev = current->prev;
   }
+
+  // update the size
   llist->size-=removed;
 
+  // if the size is zero the list is empty and the head should be null
   if (!llist->size) llist->head = NULL;
+
   return removed;
 }
 
