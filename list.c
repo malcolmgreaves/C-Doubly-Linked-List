@@ -294,8 +294,10 @@ int remove_data(list* llist, const void* data, equal_op compare_func, list_op fr
     }
 
     // update the previous and next node
-    next = current->next;
-    prev = current->prev;
+    if (llist->size > 1) {
+      next = current->next;
+      prev = current->prev;
+    }
   }
 
   // update the size
